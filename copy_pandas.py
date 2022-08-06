@@ -11,7 +11,10 @@ def main():
     SRC_DB_CONN = os.getenv("SRC_DB_CONN")
     TARGET_DB_CONN = os.getenv("TARGET_DB_CONN")
 
-    LIMIT = 5
+    LIMIT = os.getenv("LIMIT") or 10
+    CHUNK = os.getenv("CHUNK") or 100_000
+    print("limit: ", LIMIT)
+    print("chunk: ", CHUNK)
 
     src_conn = create_engine(
         SRC_DB_CONN,
